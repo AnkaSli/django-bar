@@ -3,8 +3,7 @@ from django.conf.urls import url
 from . import views  # import widoków aplikacji
 from django.contrib.auth.decorators import login_required
 from django.views.generic.list import ListView
-from .models import Pizza
-from .models import Pizza,Skladnik
+from .models import Pizza, Skladnik
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -14,5 +13,7 @@ urlpatterns = [
     url(r'^listas/', login_required(ListView.as_view(model=Skladnik)),
         name='listas'),
     url(r'^dodaj/$', views.PizzaCreate.as_view(), name='dodaj'),
+    url(r'^edytuj/(?P<pk>\d+)/', views.PizzaUpdate.as_view(), name='edytuj'),
+    url(r'^usun/(?P<pk>\d+)/', views.PizzaDelete.as_view(), name='usun'),
 ]
 
