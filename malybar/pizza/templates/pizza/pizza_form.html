@@ -1,5 +1,9 @@
-<h1>Dodaj pizzę</h1>
+{% extends "pizza/base.html" %}
 
+{% block tytul_head %}
+Dodaj pizzę
+{% endblock %}
+{% block tresc %}
 <form action="." method="post" id="pform">
     {% csrf_token %}
     {{ form.as_p }}
@@ -20,3 +24,4 @@
 </form>
 
 <B>{{imie}}</B>
+{% endblock %}

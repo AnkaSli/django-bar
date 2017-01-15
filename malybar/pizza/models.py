@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Pizza(models.Model):
     LARGE = 'L'
     MEDIUM = 'M'
@@ -28,7 +29,6 @@ class Pizza(models.Model):
         verbose_name_plural = 'pizze'
 
 
-
 class Skladnik(models.Model):
     pizza = models.ForeignKey(Pizza, related_name='skladniki')
     nazwa = models.CharField(verbose_name=u"składnik", max_length=30)
@@ -40,6 +40,11 @@ class Skladnik(models.Model):
 
     def __unicode__(self):
         return u'%s' % (self.nazwa)
+
+    def czy_jarski(self):
+        if self.jarski:
+            return 'jarski'
+        return 'niejarski'
 
     class Meta:
         verbose_name_plural = u'Składniki'
