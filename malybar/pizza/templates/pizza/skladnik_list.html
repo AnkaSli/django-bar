@@ -1,0 +1,15 @@
+<h1>Lista składników</h1>
+
+<table class="table">
+<tr><th>Lp.</th><th>Nazwa</th><th>Pizza</th></tr>
+{% for p in object_list %}
+<tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ p.nazwa }}</td>
+    <td>{{ p.pizza.nazwa }} </td>
+    
+     
+    </td>
+</tr>
+{% endfor %}
+</table>
